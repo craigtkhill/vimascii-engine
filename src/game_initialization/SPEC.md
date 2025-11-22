@@ -58,7 +58,7 @@ Format: `[IS-TEST-IMPLEMENTED][IS-CODE-IMPLEMENTED] IDENTIFIER: example case`
 - [O][O] REQ-INIT-FILE-015: System ensures file integrity (no partial writes on error)
 
 ### ASCII Art Format Validation
-- [O][O] REQ-INIT-ART-001: Generated ASCII art is exactly 120 characters wide per line
+- [U][X] REQ-INIT-ART-001: Generated ASCII art is exactly 120 characters wide per line
 - [O][O] REQ-INIT-ART-002: Generated ASCII art is exactly 40 lines tall
 - [O][O] REQ-INIT-ART-003: First line starts with + and ends with +
 - [O][O] REQ-INIT-ART-004: First line is filled with - characters between + symbols
