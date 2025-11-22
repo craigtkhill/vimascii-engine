@@ -1,4 +1,5 @@
-# vimascii-engine
+# vimascai-engine
+*Vim-Ascii-AI Engine*
 
 **LLM-powered ASCII art story game for Vim/Neovim practice**
 
@@ -27,8 +28,8 @@ A text-based interactive story game that combines AI-generated ASCII art with na
 
 ```bash
 # Clone the repository
-git clone https://github.com/craigtkhill/vimascii-engine.git
-cd vimascii-engine
+git clone https://github.com/craigtkhill/vimascai-engine.git
+cd vimascai-engine
 
 # Build the project
 cargo build --release
