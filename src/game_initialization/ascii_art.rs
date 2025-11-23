@@ -60,6 +60,20 @@ mod tests {
         // Assert
         assert!(result.is_err());
     }
+
+    #[test]
+    fn test_should_reject_middle_line_without_pipe_border() {
+        // REQ-INIT-ART-005
+
+        // Arrange
+        let middle_line = " ".repeat(120);
+
+        // Act
+        let result = AsciiArt::validate_middle_line(&middle_line);
+
+        // Assert
+        assert!(result.is_err());
+    }
 }
 
 // ============================================
@@ -97,6 +111,13 @@ impl AsciiArt {
             return Err("First line must be filled with '-' between '+' symbols".to_string());
         }
 
+        Ok(())
+    }
+
+    pub fn validate_middle_line(line: &str) -> Result<(), String> {
+        if !line.starts_with('|') || !line.ends_with('|') {
+            return Err("Middle lines must start and end with '|'".to_string());
+        }
         Ok(())
     }
 }
