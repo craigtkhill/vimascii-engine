@@ -46,6 +46,20 @@ mod tests {
         // Assert
         assert!(result.is_err());
     }
+
+    #[test]
+    fn test_should_reject_first_line_without_dash_fill() {
+        // REQ-INIT-ART-004
+
+        // Arrange
+        let first_line = "+".to_string() + &"x".repeat(118) + "+";
+
+        // Act
+        let result = AsciiArt::validate_first_line(&first_line);
+
+        // Assert
+        assert!(result.is_err());
+    }
 }
 
 // ============================================
@@ -76,6 +90,13 @@ impl AsciiArt {
         if !line.starts_with('+') || !line.ends_with('+') {
             return Err("First line must start and end with '+'".to_string());
         }
+
+        // Check middle is filled with dashes
+        let middle = &line[1..line.len()-1];
+        if !middle.chars().all(|c| c == '-') {
+            return Err("First line must be filled with '-' between '+' symbols".to_string());
+        }
+
         Ok(())
     }
 }

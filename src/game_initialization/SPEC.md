@@ -61,7 +61,7 @@ Format: `[IS-TEST-IMPLEMENTED][IS-CODE-IMPLEMENTED] IDENTIFIER: example case`
 - [U][X] REQ-INIT-ART-001: Generated ASCII art is exactly 120 characters wide per line
 - [U][X] REQ-INIT-ART-002: Generated ASCII art is exactly 40 lines tall
 - [U][X] REQ-INIT-ART-003: First line starts with + and ends with +
-- [O][O] REQ-INIT-ART-004: First line is filled with - characters between + symbols
+- [U][X] REQ-INIT-ART-004: First line is filled with - characters between + symbols
 - [O][O] REQ-INIT-ART-005: Lines 2-39 start with | and end with |
 - [O][O] REQ-INIT-ART-006: Last line matches first line format
 - [O][O] REQ-INIT-ART-007: System validates format before writing to file
