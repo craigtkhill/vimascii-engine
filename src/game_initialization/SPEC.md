@@ -59,7 +59,7 @@ Format: `[IS-TEST-IMPLEMENTED][IS-CODE-IMPLEMENTED] IDENTIFIER: example case`
 
 ### ASCII Art Format Validation
 - [U][X] REQ-INIT-ART-001: Generated ASCII art is exactly 120 characters wide per line
-- [O][O] REQ-INIT-ART-002: Generated ASCII art is exactly 40 lines tall
+- [U][X] REQ-INIT-ART-002: Generated ASCII art is exactly 40 lines tall
 - [O][O] REQ-INIT-ART-003: First line starts with + and ends with +
 - [O][O] REQ-INIT-ART-004: First line is filled with - characters between + symbols
 - [O][O] REQ-INIT-ART-005: Lines 2-39 start with | and end with |
