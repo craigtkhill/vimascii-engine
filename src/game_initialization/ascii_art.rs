@@ -32,6 +32,20 @@ mod tests {
         // Assert
         assert!(result.is_err());
     }
+
+    #[test]
+    fn test_should_reject_first_line_without_plus_border() {
+        // REQ-INIT-ART-003
+
+        // Arrange
+        let first_line = "-".repeat(120);
+
+        // Act
+        let result = AsciiArt::validate_first_line(&first_line);
+
+        // Assert
+        assert!(result.is_err());
+    }
 }
 
 // ============================================
@@ -54,6 +68,13 @@ impl AsciiArt {
     pub fn validate_height(lines: &[String]) -> Result<(), String> {
         if lines.len() != 40 {
             return Err(format!("Height must be exactly 40 lines, got {}", lines.len()));
+        }
+        Ok(())
+    }
+
+    pub fn validate_first_line(line: &str) -> Result<(), String> {
+        if !line.starts_with('+') || !line.ends_with('+') {
+            return Err("First line must start and end with '+'".to_string());
         }
         Ok(())
     }
