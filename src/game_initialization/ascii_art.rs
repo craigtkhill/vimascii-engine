@@ -24,7 +24,7 @@ mod tests {
         // REQ-INIT-ART-002
 
         // Arrange
-        let lines = vec!["x".repeat(120); 10]; // Only 10 lines
+        let lines = vec!["x".repeat(120); 10];
 
         // Act
         let result = AsciiArt::validate_height(&lines);
@@ -74,6 +74,34 @@ mod tests {
         // Assert
         assert!(result.is_err());
     }
+
+    #[test]
+    fn test_should_reject_last_line_without_matching_first_line_format() {
+        // REQ-INIT-ART-006
+
+        // Arrange
+        let last_line = "|".to_string() + &"-".repeat(118) + "|";
+
+        // Act
+        let result = AsciiArt::validate_last_line(&last_line);
+
+        // Assert
+        assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_should_reject_invalid_ascii_art_format() {
+        // REQ-INIT-ART-007
+
+        // Arrange
+        let invalid_art = vec!["short line".to_string()];
+
+        // Act
+        let result = AsciiArt::validate(&invalid_art);
+
+        // Assert
+        assert!(result.is_err());
+    }
 }
 
 // ============================================
@@ -84,6 +112,19 @@ pub struct AsciiArt {
 }
 
 impl AsciiArt {
+    pub fn validate(lines: &[String]) -> Result<(), String> {
+        Self::validate_height(lines)?;
+        Self::validate_width(lines)?;
+        Self::validate_first_line(&lines[0])?;
+
+        for line in &lines[1..39] {
+            Self::validate_middle_line(line)?;
+        }
+
+        Self::validate_last_line(&lines[39])?;
+        Ok(())
+    }
+
     pub fn validate_width(lines: &[String]) -> Result<(), String> {
         for line in lines {
             if line.len() != 120 {
@@ -105,7 +146,6 @@ impl AsciiArt {
             return Err("First line must start and end with '+'".to_string());
         }
 
-        // Check middle is filled with dashes
         let middle = &line[1..line.len()-1];
         if !middle.chars().all(|c| c == '-') {
             return Err("First line must be filled with '-' between '+' symbols".to_string());
@@ -119,5 +159,9 @@ impl AsciiArt {
             return Err("Middle lines must start and end with '|'".to_string());
         }
         Ok(())
+    }
+
+    pub fn validate_last_line(line: &str) -> Result<(), String> {
+        Self::validate_first_line(line)
     }
 }

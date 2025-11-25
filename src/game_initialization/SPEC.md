@@ -63,8 +63,8 @@ Format: `[IS-TEST-IMPLEMENTED][IS-CODE-IMPLEMENTED] IDENTIFIER: example case`
 - [U][X] REQ-INIT-ART-003: First line starts with + and ends with +
 - [U][X] REQ-INIT-ART-004: First line is filled with - characters between + symbols
 - [U][X] REQ-INIT-ART-005: Lines 2-39 start with | and end with |
-- [O][O] REQ-INIT-ART-006: Last line matches first line format
-- [O][O] REQ-INIT-ART-007: System validates format before writing to file
+- [U][X] REQ-INIT-ART-006: Last line matches first line format
+- [U][X] REQ-INIT-ART-007: System validates format before writing to file
 
 ### Structured Generation Schema
 - [O][O] REQ-INIT-SCHEMA-001: System enforces ASCII art dimensions via schema
