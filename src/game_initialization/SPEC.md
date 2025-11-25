@@ -34,40 +34,31 @@ Format: `[IS-TEST-IMPLEMENTED][IS-CODE-IMPLEMENTED] IDENTIFIER: example case`
 - [O][O] REQ-INIT-GEN-002: System sends story context to LLM
 - [O][O] REQ-INIT-GEN-003: System requests first scene generation
 - [O][O] REQ-INIT-GEN-004: System uses structured generation for consistent format
-- [O][O] REQ-INIT-GEN-005: System generates ASCII art (120x40, bordered with +--|)
-- [O][O] REQ-INIT-GEN-006: System generates narrative text (1 paragraph, ~50 words)
-- [O][O] REQ-INIT-GEN-007: System generates 2-4 choice options
-- [O][O] REQ-INIT-GEN-008: System handles Ollama connection errors with clear message
-- [O][O] REQ-INIT-GEN-009: System handles LLM generation errors gracefully
+- [O][O] REQ-INIT-GEN-005: System generates ASCII art 120 characters wide
+- [O][O] REQ-INIT-GEN-006: System generates ASCII art 40 lines tall
+- [O][O] REQ-INIT-GEN-007: System generates ASCII art with bordered format
+- [O][O] REQ-INIT-GEN-008: System generates narrative text
+- [O][O] REQ-INIT-GEN-009: System generates minimum 2 choice options
+- [O][O] REQ-INIT-GEN-010: System generates maximum 4 choice options
+- [O][O] REQ-INIT-GEN-011: System handles Ollama connection errors
+- [O][O] REQ-INIT-GEN-012: System displays clear message for connection errors
+- [O][O] REQ-INIT-GEN-013: System handles LLM generation errors
 
 ### Game File Creation
 - [O][O] REQ-INIT-FILE-001: System creates game/game.md file
 - [O][O] REQ-INIT-FILE-002: System writes UTF-8 encoded content
-- [O][O] REQ-INIT-FILE-003: System writes "# Game Session" header
+- [O][O] REQ-INIT-FILE-003: System writes game session header
 - [O][O] REQ-INIT-FILE-004: System writes session start timestamp
-- [O][O] REQ-INIT-FILE-005: System writes horizontal rule separator (---)
-- [O][O] REQ-INIT-FILE-006: System writes "## Scene 1" header
-- [O][O] REQ-INIT-FILE-007: System writes ASCII art in code fence (```)
-- [O][O] REQ-INIT-FILE-008: System writes blank line after code fence
-- [O][O] REQ-INIT-FILE-009: System writes scene title in bold (**title**)
-- [O][O] REQ-INIT-FILE-010: System writes narrative text
-- [O][O] REQ-INIT-FILE-011: System writes blank line before choices
-- [O][O] REQ-INIT-FILE-012: System writes "**What do you do?**" prompt
-- [O][O] REQ-INIT-FILE-013: System writes each choice as "- [ ] {text}"
-- [O][O] REQ-INIT-FILE-014: System writes final horizontal rule separator (---)
-- [O][O] REQ-INIT-FILE-015: System ensures file integrity (no partial writes on error)
-
-### ASCII Art Format Validation
-- [U][X] REQ-INIT-ART-001: Generated ASCII art is exactly 120 characters wide per line
-- [U][X] REQ-INIT-ART-002: Generated ASCII art is exactly 40 lines tall
-- [U][X] REQ-INIT-ART-003: First line starts with + and ends with +
-- [U][X] REQ-INIT-ART-004: First line is filled with - characters between + symbols
-- [U][X] REQ-INIT-ART-005: Lines 2-39 start with | and end with |
-- [U][X] REQ-INIT-ART-006: Last line matches first line format
-- [U][X] REQ-INIT-ART-007: System validates format before writing to file
-
-### Structured Generation Schema
-- [O][O] REQ-INIT-SCHEMA-001: System enforces ASCII art dimensions via schema
-- [O][O] REQ-INIT-SCHEMA-002: System enforces choice count (2-4) via schema
-- [O][O] REQ-INIT-SCHEMA-003: System enforces narrative length constraints via schema
-- [O][O] REQ-INIT-SCHEMA-004: System validates generated content matches schema
+- [O][O] REQ-INIT-FILE-005: System writes horizontal rule separator
+- [O][O] REQ-INIT-FILE-006: System writes scene header
+- [O][O] REQ-INIT-FILE-007: System writes ASCII art
+- [O][O] REQ-INIT-FILE-008: System formats ASCII art in code fence
+- [O][O] REQ-INIT-FILE-009: System writes blank line after ASCII art
+- [O][O] REQ-INIT-FILE-010: System writes scene title
+- [O][O] REQ-INIT-FILE-011: System formats scene title in bold
+- [O][O] REQ-INIT-FILE-012: System writes narrative text
+- [O][O] REQ-INIT-FILE-013: System writes blank line before choices
+- [O][O] REQ-INIT-FILE-014: System writes choice prompt
+- [O][O] REQ-INIT-FILE-015: System writes each choice as checkbox item
+- [O][O] REQ-INIT-FILE-016: System writes final horizontal rule separator
+- [O][O] REQ-INIT-FILE-017: System ensures file integrity on error
