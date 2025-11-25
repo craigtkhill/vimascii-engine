@@ -13,10 +13,10 @@ Format: `[IS-TEST-IMPLEMENTED][IS-CODE-IMPLEMENTED] IDENTIFIER: example case`
 - O = not yet implemented
 
 ### CLI Command
-- [O][O] REQ-INIT-CLI-001: System provides 'game-engine init' CLI command
-- [O][O] REQ-INIT-CLI-002: System displays success message after initialization
-- [O][O] REQ-INIT-CLI-003: System displays error if game.md already exists
-- [O][O] REQ-INIT-CLI-004: System provides --force flag to overwrite existing game.md
+- [U][X] REQ-INIT-CLI-001: System provides 'game-engine init' CLI command
+- [U][X] REQ-INIT-CLI-002: System displays success message after initialization
+- [U][X] REQ-INIT-CLI-003: System displays error if game.md already exists
+- [U][X] REQ-INIT-CLI-004: System provides --force flag to overwrite existing game.md
 
 ### Directory Structure
 - [O][O] REQ-INIT-DIR-001: System creates game/ directory if it does not exist
